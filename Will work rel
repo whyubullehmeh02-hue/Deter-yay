@@ -1,0 +1,18 @@
+local url = "https://raw.githubusercontent.com/lyn4x-js/Peatlscent/main/DETERMINATION_Only_Safe_NoLag_Delta.lua"
+
+task.spawn(function()
+    local success, err = pcall(function()
+        local source = game:HttpGet(url)
+        local fn, compileErr = loadstring(source)
+
+        if not fn then
+            error(compileErr)
+        end
+
+        fn()
+    end)
+
+    if not success then
+        warn("Script error: " .. tostring(err))
+    end
+end)
